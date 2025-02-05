@@ -3,6 +3,16 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//adicionar e configurar o (cross-origin resource sharing) Para permitir que a API seja acessada por qualquer origem.
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+});
+
 // Add services to the container.
 //adicionar string de conexão ao container.
 // Adicionar a string de conexao ao container.
